@@ -53,12 +53,12 @@ const CharInfo = (props) => {
     }
 
     const onCharLoading = () => {
-        setLoading(loading => false);
+        setLoading(loading => true);
     }
 
     const onError = () => {
         setLoading(loading => false);
-        setError(error => false);
+        setError(error => true);
     }
 
 

@@ -11,7 +11,7 @@ const RandomChar = () => {
     // const [loading, setLoading] = useState(true);
     // const [error, setError] = useState(false);
 
-    const {loading, error, getCharacter} = useMarvelService();
+    const {loading, error, getCharacter, clearError} = useMarvelService();
 
     useEffect(() => {
         updateChar();
@@ -25,19 +25,10 @@ const RandomChar = () => {
 
     const onCharLoaded = (char) => {
         setChar(char);
-        // setLoading(loading => false);
     }
 
-    // const onCharLoading = () => {
-    //     setLoading(loading => true);
-    // }
-
-    // const onError = () => {
-    //     setLoading(loading => false);
-    //     setError(error => true);
-    // }
-
     const updateChar = () => {
+        clearError();
         const id = Math.floor(Math.random() * (1011400 - 1011000) + 1011000);
         getCharacter(id)
             .then(onCharLoaded)
